@@ -12,7 +12,7 @@ async def  publish_order(order: dict):
     connection = await aio_pika.connect_robust(RABBIT_URL)
     channel = await connection.channel()
 
-    message = aio_pika.Message(body=json.dumps(order.).encode())
+    message = aio_pika.Message(body=json.dumps(order).encode())
 
     await channel.default_exchange.publish(
         message,
